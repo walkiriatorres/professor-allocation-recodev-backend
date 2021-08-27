@@ -60,8 +60,11 @@ public class AllocationService {
 		}
 	}
 
-	public Allocation create(Allocation allocation) {
+	public Allocation create(Allocation allocation) throws Exception {
 		allocation.setId(null);
+		if (allocation.getStart().compareTo(allocation.getEnd()) > 0){
+			throw new Exception();
+		}
 		Allocation newAllocation = saveInternal(allocation);
 		return newAllocation;
 	}
