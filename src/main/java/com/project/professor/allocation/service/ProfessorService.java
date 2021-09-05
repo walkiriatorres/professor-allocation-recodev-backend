@@ -36,11 +36,6 @@ public class ProfessorService {
 		return professor;
 	}
 	
-	public Professor findByCPFContainingIgnoreCase(String cpf) {		
-	Professor professor = professorRepository.findByCPFContainingIgnoreCase(cpf);
-		return professor;		
-	}
-	
 	public List<Professor> findAll(String name) {
 		if (name != null) {
 			List<Professor> professors = professorRepository.findByNameContainingIgnoreCase(name);
