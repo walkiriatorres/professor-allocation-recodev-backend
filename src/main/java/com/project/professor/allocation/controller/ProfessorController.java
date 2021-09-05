@@ -47,21 +47,6 @@ public class ProfessorController {
 		@ApiResponse(code = 404, message = "NOT_FOUND"),
 		@ApiResponse(code = 200, message = "OK")
 	})
-	@ApiOperation(value = "Find a professor by CPF")
-	@GetMapping(path = "/{professor_cpf}") //GET /professors/1
-	public ResponseEntity<Professor> findByCPFContainingIgnoreCase(@PathVariable(name = "professor_cpf") String cpf){
-		Professor professor = professorService.findByCPFContainingIgnoreCase(cpf);
-		if (professor == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} else {
-			return new ResponseEntity<>(professor, HttpStatus.OK);
-		}
-	}
-	
-	@ApiResponses({
-		@ApiResponse(code = 404, message = "NOT_FOUND"),
-		@ApiResponse(code = 200, message = "OK")
-	})
 	@ApiOperation(value = "Find a professor by Id")
 	@GetMapping(path = "/{professor_id}") //GET /professors/1
 	public ResponseEntity<Professor> findById(@PathVariable(name = "professor_id") Long id){
